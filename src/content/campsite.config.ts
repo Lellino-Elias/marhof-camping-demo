@@ -118,8 +118,8 @@ export const campsite: CampsiteConfig = {
   saison: { von: "April", bis: "Oktober" },
 
   hero: {
-    aerial: { src: `${IMG}/luft-titel2007-5247.jpg`, alt: "Luftaufnahme des FKK-Camping Müllerhof am Keutschacher See" },
-    sunset: { src: `${IMG}/163-6376_sonnenu.jpg`, alt: "Sonnenuntergang am Keutschacher See" },
+    aerial: { src: `${IMG}/luft-titel2007-5247.webp`, alt: "Luftaufnahme des FKK-Camping Müllerhof am Keutschacher See" },
+    sunset: { src: `${IMG}/163-6376_sonnenu.webp`, alt: "Sonnenuntergang am Keutschacher See" },
   },
 
   camping: {
@@ -127,12 +127,12 @@ export const campsite: CampsiteConfig = {
     intro:
       "Ein Platz, der atmet: weite Stellplätze in der Sonne, drei eigene Badestrände und ein See in Trinkwasserqualität — Erholung, wie sie sein soll.",
     features: [
-      { title: "Traumlage", text: "Eingebettet in die idyllische Landschaft am Keutschacher See, mitten in der Region Wörthersee.", image: { src: `${IMG}/luft1.jpg`, alt: "Traumlage am Keutschacher See aus der Luft" } },
-      { title: "Stellplätze", text: "Großzügige, sonnige Stellplätze mit viel Platz und Privatsphäre — direkt am Wasser oder im Grünen.", image: { src: `${IMG}/fkk_165915.jpg`, alt: "Sonnige Stellplätze am Müllerhof" } },
-      { title: "Drei Badestrände", text: "Gleich drei eigene Badestrände laden zum Schwimmen im glasklaren Naturbadesee ein.", image: { src: `${IMG}/fkk_165896.jpg`, alt: "Badestrand am Keutschacher See" } },
-      { title: "Sanitäreinrichtung", text: "Gepflegte, moderne Sanitäranlagen sorgen für Komfort während des gesamten Aufenthalts.", image: { src: `${IMG}/fkk_165905.jpg`, alt: "Gepflegte Anlage am Müllerhof" } },
-      { title: "Seerestaurant", text: "Kulinarischer Genuss mit Seeblick: das TOP-Seerestaurant verwöhnt von früh bis spät.", image: { src: `${IMG}/rest08-terrasse-6315.jpg`, alt: "Seerestaurant mit Terrasse am Müllerhof" } },
-      { title: "Der kleine Laden", text: "Frische Brötchen und alles für den täglichen Bedarf — direkt am Platz.", image: { src: `${IMG}/shop-0854.jpg`, alt: "Der kleine Laden am Campingplatz" } },
+      { title: "Traumlage", text: "Eingebettet in die idyllische Landschaft am Keutschacher See, mitten in der Region Wörthersee.", image: { src: `${IMG}/luft1.webp`, alt: "Traumlage am Keutschacher See aus der Luft" } },
+      { title: "Stellplätze", text: "Großzügige, sonnige Stellplätze mit viel Platz und Privatsphäre — direkt am Wasser oder im Grünen.", image: { src: `${IMG}/fkk_165915.webp`, alt: "Sonnige Stellplätze am Müllerhof" } },
+      { title: "Drei Badestrände", text: "Gleich drei eigene Badestrände laden zum Schwimmen im glasklaren Naturbadesee ein.", image: { src: `${IMG}/fkk_165896.webp`, alt: "Badestrand am Keutschacher See" } },
+      { title: "Sanitäreinrichtung", text: "Gepflegte, moderne Sanitäranlagen sorgen für Komfort während des gesamten Aufenthalts.", image: { src: `${IMG}/fkk_165905.webp`, alt: "Gepflegte Anlage am Müllerhof" } },
+      { title: "Seerestaurant", text: "Kulinarischer Genuss mit Seeblick: das TOP-Seerestaurant verwöhnt von früh bis spät.", image: { src: `${IMG}/rest08-terrasse-6315.webp`, alt: "Seerestaurant mit Terrasse am Müllerhof" } },
+      { title: "Der kleine Laden", text: "Frische Brötchen und alles für den täglichen Bedarf — direkt am Platz.", image: { src: `${IMG}/shop-0854.webp`, alt: "Der kleine Laden am Campingplatz" } },
     ],
   },
 
@@ -140,9 +140,9 @@ export const campsite: CampsiteConfig = {
     heading: "Mobilheime & Mietunterkünfte",
     intro: "Komfortabel wohnen mitten in der Natur — schlüsselfertig, stilvoll, direkt am See.",
     items: [
-      { name: "Nemo", kind: "Mobilheim", text: "Modernes Mobilheim mit überdachter Terrasse — ideal für Paare und kleine Familien.", image: { src: `${IMG}/fkk-wohnen6447-nemo.jpg`, alt: "Mobilheim Nemo am Müllerhof" }, priceFrom: 89, features: ["bis 4 Personen", "Terrasse", "voll ausgestattet"] },
-      { name: "Ginger", kind: "Mobilheim", text: "Großzügiges Mobilheim mit viel Licht und Platz für entspannte Familientage.", image: { src: `${IMG}/fkk-wohnen6447-ginger.jpg`, alt: "Mobilheim Ginger am Müllerhof" }, priceFrom: 95, features: ["bis 5 Personen", "2 Schlafzimmer", "Terrasse"] },
-      { name: "Mietwohnwagen", kind: "Mietwohnwagen", text: "Die unkomplizierte Art zu campen — fertig eingerichtet, einfach ankommen.", image: { src: `${IMG}/fkk-wohnen6404.jpg`, alt: "Mietwohnwagen am Müllerhof" }, priceFrom: 65, features: ["bis 4 Personen", "Vorzelt", "sofort bezugsfertig"] },
+      { name: "Nemo", kind: "Mobilheim", text: "Modernes Mobilheim mit überdachter Terrasse — ideal für Paare und kleine Familien.", image: { src: `${IMG}/fkk-wohnen6447-nemo.webp`, alt: "Mobilheim Nemo am Müllerhof" }, priceFrom: 89, features: ["bis 4 Personen", "Terrasse", "voll ausgestattet"] },
+      { name: "Ginger", kind: "Mobilheim", text: "Großzügiges Mobilheim mit viel Licht und Platz für entspannte Familientage.", image: { src: `${IMG}/fkk-wohnen6447-ginger.webp`, alt: "Mobilheim Ginger am Müllerhof" }, priceFrom: 95, features: ["bis 5 Personen", "2 Schlafzimmer", "Terrasse"] },
+      { name: "Mietwohnwagen", kind: "Mietwohnwagen", text: "Die unkomplizierte Art zu campen — fertig eingerichtet, einfach ankommen.", image: { src: `${IMG}/fkk-wohnen6404.webp`, alt: "Mietwohnwagen am Müllerhof" }, priceFrom: 65, features: ["bis 4 Personen", "Vorzelt", "sofort bezugsfertig"] },
     ],
   },
 
@@ -150,9 +150,9 @@ export const campsite: CampsiteConfig = {
     heading: "Für die ganze Familie",
     intro: "Hier dürfen Kinder Kinder sein: Animation, Natur zum Anfassen und Platz zum Spielen.",
     features: [
-      { title: "Kinderanimation", text: "Buntes Programm in den Ferien — von Spielen bis Basteln, für strahlende Kinderaugen.", image: { src: `${IMG}/clown-12-3881.jpg`, alt: "Kinderanimation am Müllerhof" } },
-      { title: "Naturerlebnis", text: "See, Wiese, Wald: Die Natur ist der schönste Abenteuerspielplatz.", image: { src: `${IMG}/kinder-rad.jpg`, alt: "Kinder beim Radfahren in der Natur" } },
-      { title: "Spielplatz & Spielraum", text: "Geschützte Spielbereiche zum Toben — drinnen wie draußen.", image: { src: `${IMG}/fkk_165890.jpg`, alt: "Spielbereich am Campingplatz" } },
+      { title: "Kinderanimation", text: "Buntes Programm in den Ferien — von Spielen bis Basteln, für strahlende Kinderaugen.", image: { src: `${IMG}/clown-12-3881.webp`, alt: "Kinderanimation am Müllerhof" } },
+      { title: "Naturerlebnis", text: "See, Wiese, Wald: Die Natur ist der schönste Abenteuerspielplatz.", image: { src: `${IMG}/kinder-rad.webp`, alt: "Kinder beim Radfahren in der Natur" } },
+      { title: "Spielplatz & Spielraum", text: "Geschützte Spielbereiche zum Toben — drinnen wie draußen.", image: { src: `${IMG}/fkk_165890.webp`, alt: "Spielbereich am Campingplatz" } },
     ],
   },
 
@@ -160,12 +160,12 @@ export const campsite: CampsiteConfig = {
     heading: "Aktiv in Kärnten",
     intro: "Berge, Seen und Kultur direkt vor der Tür — die Region Wörthersee ist ein Spielplatz für Entdecker.",
     items: [
-      { title: "Bergerlebnisse", text: "Wandern in den Kärntner Nockbergen und auf den Hausbergen rund um den See.", image: { src: `${IMG}/Wandern.jpg`, alt: "Wandern in den Bergen Kärntens" } },
-      { title: "Radfahren & Biken", text: "Genussradln am See oder anspruchsvolle Touren — direkt ab Platz.", image: { src: `${IMG}/Rad.jpg`, alt: "Radfahren rund um den Wörthersee" } },
-      { title: "Golfen", text: "Mehrere Golfplätze in der Umgebung für entspannte Runden mit Aussicht.", image: { src: `${IMG}/golf1.jpg`, alt: "Golfen in der Region Wörthersee" } },
-      { title: "Burg Hochosterwitz", text: "Eine der schönsten Burgen Österreichs — ein Ausflug in die Geschichte.", image: { src: `${IMG}/hochosterwitz-0472.jpg`, alt: "Burg Hochosterwitz" } },
-      { title: "Großglockner", text: "Die legendäre Hochalpenstraße — Alpenpanorama zum Greifen nah.", image: { src: `${IMG}/grossglockner_3733.jpg`, alt: "Großglockner Hochalpenstraße" } },
-      { title: "Minimundus", text: "Die Welt im Kleinen am Wörthersee — ein Klassiker für Familien.", image: { src: `${IMG}/125-2598_minimundus.jpg`, alt: "Minimundus am Wörthersee" } },
+      { title: "Bergerlebnisse", text: "Wandern in den Kärntner Nockbergen und auf den Hausbergen rund um den See.", image: { src: `${IMG}/Wandern.webp`, alt: "Wandern in den Bergen Kärntens" } },
+      { title: "Radfahren & Biken", text: "Genussradln am See oder anspruchsvolle Touren — direkt ab Platz.", image: { src: `${IMG}/Rad.webp`, alt: "Radfahren rund um den Wörthersee" } },
+      { title: "Golfen", text: "Mehrere Golfplätze in der Umgebung für entspannte Runden mit Aussicht.", image: { src: `${IMG}/golf1.webp`, alt: "Golfen in der Region Wörthersee" } },
+      { title: "Burg Hochosterwitz", text: "Eine der schönsten Burgen Österreichs — ein Ausflug in die Geschichte.", image: { src: `${IMG}/hochosterwitz-0472.webp`, alt: "Burg Hochosterwitz" } },
+      { title: "Großglockner", text: "Die legendäre Hochalpenstraße — Alpenpanorama zum Greifen nah.", image: { src: `${IMG}/grossglockner_3733.webp`, alt: "Großglockner Hochalpenstraße" } },
+      { title: "Minimundus", text: "Die Welt im Kleinen am Wörthersee — ein Klassiker für Familien.", image: { src: `${IMG}/125-2598_minimundus.webp`, alt: "Minimundus am Wörthersee" } },
     ],
   },
 
@@ -179,14 +179,14 @@ export const campsite: CampsiteConfig = {
   },
 
   galerie: [
-    { src: `${IMG}/luft2.jpg`, alt: "Luftaufnahme des Campingplatzes am See" },
-    { src: `${IMG}/fkk_165913.jpg`, alt: "Idylle am Keutschacher See" },
-    { src: `${IMG}/rest08-terrasse6303.jpg`, alt: "Terrasse des Seerestaurants" },
-    { src: `${IMG}/fkk-wohnen6-6716.jpg`, alt: "Wohnen am Müllerhof" },
-    { src: `${IMG}/fkk_165903.jpg`, alt: "Stellplatz im Grünen" },
-    { src: `${IMG}/shop-0867.jpg`, alt: "Der kleine Laden" },
-    { src: `${IMG}/fkk_165898.jpg`, alt: "Sonniger Tag am See" },
-    { src: `${IMG}/fkk_165910.jpg`, alt: "Natur am Keutschacher See" },
+    { src: `${IMG}/luft2.webp`, alt: "Luftaufnahme des Campingplatzes am See" },
+    { src: `${IMG}/fkk_165913.webp`, alt: "Idylle am Keutschacher See" },
+    { src: `${IMG}/rest08-terrasse6303.webp`, alt: "Terrasse des Seerestaurants" },
+    { src: `${IMG}/fkk-wohnen6-6716.webp`, alt: "Wohnen am Müllerhof" },
+    { src: `${IMG}/fkk_165903.webp`, alt: "Stellplatz im Grünen" },
+    { src: `${IMG}/shop-0867.webp`, alt: "Der kleine Laden" },
+    { src: `${IMG}/fkk_165898.webp`, alt: "Sonniger Tag am See" },
+    { src: `${IMG}/fkk_165910.webp`, alt: "Natur am Keutschacher See" },
   ],
 
   booking: {
