@@ -3,6 +3,11 @@ import Reveal from "@/components/ui/Reveal";
 import { campsite } from "@/content/campsite.config";
 
 export default function TrustBar() {
+  const { heading, headingEmphasis, intro } = campsite.trust;
+  const hasEmph = Boolean(headingEmphasis) && heading.includes(headingEmphasis);
+  const [hBefore, hAfter] = hasEmph ? heading.split(headingEmphasis) : [heading, ""];
+  const awards = campsite.awards.filter((a) => a.image);
+
   return (
     <section className="relative overflow-hidden border-y border-line bg-bg2 px-5 py-16 md:px-8 md:py-28">
       {/* faint warm/lake wash */}
@@ -18,10 +23,12 @@ export default function TrustBar() {
       <div className="relative mx-auto max-w-[1080px] text-center">
         <Reveal>
           <h2 className="font-display mx-auto max-w-[20ch] text-[clamp(1.85rem,7vw,3.05rem)] font-extrabold leading-[1.08] md:leading-[1.03] tracking-tight text-ink">
-            Worauf du dich <span className="font-serif italic font-normal text-gold">verlassen</span> kannst
+            {hBefore}
+            {hasEmph && <span className="font-serif italic font-normal text-gold">{headingEmphasis}</span>}
+            {hAfter}
           </h2>
           <p className="mx-auto mt-5 max-w-[52ch] text-base leading-relaxed text-muted md:text-lg">
-            Keine versteckten Gebühren, geprüfte Qualität und mehrfach ausgezeichnet — vom ersten Klick bis zur Abreise am See.
+            {intro}
           </p>
           <div className="mx-auto mt-8 h-0.5 w-12 rounded-full bg-gradient-to-r from-transparent via-gold to-transparent" />
         </Reveal>
@@ -44,15 +51,15 @@ export default function TrustBar() {
           </ul>
         </Reveal>
 
-        <Reveal delay={220}>
-          <div className="mt-10 md:mt-14 flex flex-wrap items-stretch justify-center gap-5 md:gap-7">
-            {campsite.awards.map((a) =>
-              a.image ? (
+        {awards.length > 0 && (
+          <Reveal delay={220}>
+            <div className="mt-10 md:mt-14 flex flex-wrap items-stretch justify-center gap-5 md:gap-7">
+              {awards.map((a) => (
                 <figure key={a.label} className="flex w-[min(248px,82vw)] flex-col items-center gap-4">
                   <div className="grid aspect-[1.42/1] w-full place-items-center rounded-3xl bg-surface px-7 py-6 shadow-[0_18px_40px_-22px_rgba(28,35,30,0.3)]">
                     <Image
-                      src={a.image.src}
-                      alt={a.image.alt}
+                      src={a.image!.src}
+                      alt={a.image!.alt}
                       width={180}
                       height={120}
                       className="max-h-[118px] w-auto object-contain"
@@ -62,10 +69,10 @@ export default function TrustBar() {
                     {a.label}
                   </figcaption>
                 </figure>
-              ) : null,
-            )}
-          </div>
-        </Reveal>
+              ))}
+            </div>
+          </Reveal>
+        )}
       </div>
     </section>
   );

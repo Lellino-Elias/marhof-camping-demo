@@ -13,7 +13,8 @@ export default function Hero() {
   const mediaRef = useRef<HTMLDivElement>(null);
 
   const { claim, claimEmphasis } = campsite;
-  const [before, after] = claim.split(claimEmphasis);
+  const hasEmphasis = Boolean(claimEmphasis) && claim.includes(claimEmphasis);
+  const [before, after] = hasEmphasis ? claim.split(claimEmphasis) : [claim, ""];
   const hero = campsite.hero.aerial;
 
   useEffect(() => {
@@ -50,7 +51,7 @@ export default function Hero() {
           style={{ textShadow: "0 2px 30px rgba(0,0,0,0.4)" }}
         >
           {before}
-          <span className="font-serif italic font-normal text-[#e6b667]">{claimEmphasis}</span>
+          {hasEmphasis && <span className="font-serif italic font-normal text-[#e6b667]">{claimEmphasis}</span>}
           {after}
         </h1>
 

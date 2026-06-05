@@ -3,13 +3,19 @@ import Reveal from "@/components/ui/Reveal";
 import { campsite } from "@/content/campsite.config";
 
 export default function BrandStatement() {
+  if (!campsite.pillars?.length) return null;
+  const { text, emphasis } = campsite.statement;
+  const hasEmph = Boolean(emphasis) && text.includes(emphasis);
+  const [before, after] = hasEmph ? text.split(emphasis) : [text, ""];
+
   return (
     <section className="relative py-20 md:py-28">
       <div className="mx-auto max-w-[1320px] px-5 md:px-8">
         <Reveal>
           <h2 className="font-display max-w-[20ch] text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.12] tracking-tight text-ink">
-            Hier wird Urlaub wieder zu dem, was er sein soll — ruhig, weit und{" "}
-            <span className="font-serif italic font-normal text-gold">ganz nah an der Natur</span>.
+            {before}
+            {hasEmph && <span className="font-serif italic font-normal text-gold">{emphasis}</span>}
+            {after}
           </h2>
         </Reveal>
 

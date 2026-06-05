@@ -43,7 +43,7 @@ export default function Header() {
             {campsite.shortName.toUpperCase()}
           </span>
           <span className={`mt-0.5 text-[10px] font-semibold uppercase tracking-[0.22em] ${subtle}`}>
-            FKK-Camping · {campsite.see}
+            {campsite.brandKind}{campsite.see ? ` · ${campsite.see}` : ""}
           </span>
         </NavLink>
 

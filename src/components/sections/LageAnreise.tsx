@@ -17,22 +17,31 @@ export default function LageAnreise() {
   return (
     <section id="anreise" className="scroll-mt-24 py-16 md:py-24 lg:py-32">
       <div className="mx-auto grid max-w-[1320px] items-stretch gap-8 px-5 md:px-8 lg:grid-cols-2 lg:gap-12">
-        {/* Map */}
+        {/* Map (or, without coords, an address-only card) */}
         <Reveal>
           <div className="relative h-[300px] sm:h-[360px] overflow-hidden rounded-[2rem] lg:h-full lg:min-h-[460px]">
-            <MapClient lat={coords.lat} lng={coords.lng} label={name} />
-            <div className="pointer-events-none absolute bottom-4 left-4 right-4 max-w-[calc(100%-2rem)] leading-snug z-[1000] rounded-full border border-line bg-bg/80 px-4 py-2 text-xs text-ink backdrop-blur-md">
-              {adresse}
-            </div>
-            <a
-              href={`https://www.google.com/maps/search/?api=1&query=${coords.lat},${coords.lng}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute right-3 top-3 z-[1000] inline-flex items-center gap-2 rounded-full bg-gold px-4 py-2.5 text-[13px] min-h-[44px] md:right-4 md:top-4 md:py-2 md:text-xs md:min-h-0 font-semibold text-white shadow-lg transition-colors hover:bg-gold-soft"
-            >
-              Auf Google Maps ansehen
-              <svg width="13" height="13" viewBox="0 0 14 14"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </a>
+            {coords ? (
+              <>
+                <MapClient lat={coords.lat} lng={coords.lng} label={name} />
+                <div className="pointer-events-none absolute bottom-4 left-4 right-4 max-w-[calc(100%-2rem)] leading-snug z-[1000] rounded-full border border-line bg-bg/80 px-4 py-2 text-xs text-ink backdrop-blur-md">
+                  {adresse}
+                </div>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${coords.lat},${coords.lng}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute right-3 top-3 z-[1000] inline-flex items-center gap-2 rounded-full bg-gold px-4 py-2.5 text-[13px] min-h-[44px] md:right-4 md:top-4 md:py-2 md:text-xs md:min-h-0 font-semibold text-white shadow-lg transition-colors hover:bg-gold-soft"
+                >
+                  Auf Google Maps ansehen
+                  <svg width="13" height="13" viewBox="0 0 14 14"><path d="M3 7h8M7.5 3.5 11 7l-3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </a>
+              </>
+            ) : (
+              <div className="flex h-full w-full flex-col items-center justify-center bg-bg2 p-8 text-center">
+                <p className="font-display text-lg font-bold text-ink">{name}</p>
+                <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted">{adresse}</p>
+              </div>
+            )}
           </div>
         </Reveal>
 

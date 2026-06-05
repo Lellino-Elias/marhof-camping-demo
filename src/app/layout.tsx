@@ -23,8 +23,17 @@ const sans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: `${campsite.name} — Camping am ${campsite.see} | ${campsite.region}`,
+  title: campsite.see
+    ? `${campsite.name} — Camping am ${campsite.see} | ${campsite.region}`
+    : `${campsite.name} — Camping in ${campsite.ort} | ${campsite.region}`,
   description: campsite.intro,
+  // Demo/Akquise-Seite: nicht von Suchmaschinen indexieren.
+  robots: { index: false, follow: false },
+  openGraph: {
+    title: `${campsite.name} — ${campsite.region}`,
+    description: campsite.intro,
+    images: [{ url: campsite.hero.aerial.src }],
+  },
 };
 
 export default function RootLayout({

@@ -20,13 +20,15 @@ export default function Footer() {
               {campsite.shortName.toUpperCase()}
             </div>
             <p className="mt-1 text-[11px] md:text-[10px] font-semibold uppercase tracking-[0.28em] text-muted">
-              FKK-Camping · {campsite.see}
+              {campsite.brandKind}{campsite.see ? ` · ${campsite.see}` : ""}
             </p>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">{campsite.kontakt.adresse}</p>
             <div className="mt-5 flex flex-col text-sm">
               <a href={campsite.kontakt.telHref} className="block py-2 text-ink/85 transition-colors hover:text-gold">{campsite.kontakt.tel}</a>
               <a href={`mailto:${campsite.kontakt.mail}`} className="block py-2 break-all text-ink/85 transition-colors hover:text-gold">{campsite.kontakt.mail}</a>
-              <a href={campsite.kontakt.facebook} target="_blank" rel="noreferrer" className="block py-2 text-ink/85 transition-colors hover:text-gold">Facebook</a>
+              {campsite.kontakt.facebook && (
+                <a href={campsite.kontakt.facebook} target="_blank" rel="noreferrer" className="block py-2 text-ink/85 transition-colors hover:text-gold">Facebook</a>
+              )}
             </div>
           </div>
 
@@ -67,9 +69,11 @@ export default function Footer() {
                 </span>
               ))}
             </div>
-            <div className="mt-6 inline-flex items-center rounded-xl bg-white/95 p-3">
-              <Image src={`/campsites/${campsite.slug}/Logo-Muellerhof4c-07.png`} alt={`${campsite.name} Logo`} width={120} height={78} className="h-12 w-auto object-contain" />
-            </div>
+            {campsite.logo && (
+              <div className="mt-6 inline-flex items-center rounded-xl bg-white/95 p-3">
+                <Image src={campsite.logo.src} alt={campsite.logo.alt} width={120} height={78} className="h-12 w-auto object-contain" />
+              </div>
+            )}
           </div>
         </div>
 

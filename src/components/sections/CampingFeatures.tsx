@@ -4,6 +4,7 @@ import { campsite } from "@/content/campsite.config";
 
 export default function CampingFeatures() {
   const { heading, intro, features } = campsite.camping;
+  if (!features?.length) return null;
   const [lead, ...rest] = features;
 
   return (

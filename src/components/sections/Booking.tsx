@@ -36,18 +36,18 @@ function nightsBetween(a: string, b: string) {
 }
 
 export default function Booking() {
-  const { intro, categories } = campsite.booking;
+  const { intro, categories, priceNote, highlight, pricesArePlaceholder } = campsite.booking;
   const notify = usePlaceholderToast();
 
   const [arrival, setArrival] = useState("2026-07-12");
   const [departure, setDeparture] = useState("2026-07-19");
   const [guests, setGuests] = useState(2);
-  const [catId, setCatId] = useState(categories[0].id);
+  const [catId, setCatId] = useState(categories[0]?.id ?? "");
 
   const cat = categories.find((c) => c.id === catId) ?? categories[0];
   const nights = nightsBetween(arrival, departure);
-  const extra = Math.max(0, guests - 2) * (cat.perExtraGuest ?? 0);
-  const total = (cat.perNight + extra) * nights;
+  const extra = Math.max(0, guests - 2) * (cat?.perExtraGuest ?? 0);
+  const total = cat ? (cat.perNight + extra) * nights : 0;
   const animatedTotal = useTween(total);
 
   const field = "w-full rounded-xl border border-line bg-bg2 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-gold/60";
@@ -137,12 +137,12 @@ export default function Booking() {
               <div className="mt-7 flex flex-col gap-5 border-t border-line pt-6 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <span className="text-xs uppercase tracking-wider text-muted">
-                    Gesamt · {cat.label} · {guests} Pers. · {nights} {nights === 1 ? "Nacht" : "Nächte"}
+                    Gesamt · {cat?.label ?? "Anfrage"} · {guests} Pers. · {nights} {nights === 1 ? "Nacht" : "Nächte"}
                   </span>
                   <div className="font-display mt-1 text-4xl sm:text-5xl font-extrabold tracking-tight text-ink">
                     €{animatedTotal}
                   </div>
-                  <span className="mt-1 block text-xs leading-snug text-muted">Richtpreis ab 2 Pers. · je nach Saison · ohne Reservierungsgebühr</span>
+                  <span className="mt-1 block text-xs leading-snug text-muted">{pricesArePlaceholder ? "Unverbindlicher Richtpreis · noch nicht final bestätigt" : priceNote}</span>
                 </div>
                 <div className="flex flex-wrap gap-3">
                   <Magnetic>
@@ -188,8 +188,8 @@ export default function Booking() {
                 </ul>
               </div>
               <div className="mt-auto rounded-2xl bg-gold/10 p-4">
-                <p className="text-sm font-semibold text-gold">Ohne Reservierungsgebühr</p>
-                <p className="mt-1 text-xs text-muted">Spontane Buchungen mit Platzgarantie — ohne Preisaufschlag.</p>
+                <p className="text-sm font-semibold text-gold">{highlight.title}</p>
+                <p className="mt-1 text-xs text-muted">{highlight.text}</p>
               </div>
               <a href={campsite.kontakt.telHref} className="text-sm text-ink/85 transition-colors hover:text-gold">
                 ☎ {campsite.kontakt.tel}

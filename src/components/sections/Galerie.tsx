@@ -7,8 +7,13 @@ const tile = "group relative overflow-hidden rounded-3xl shadow-[0_18px_40px_-24
 const photo = "h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.045]";
 
 export default function Galerie() {
-  if (!campsite.galerie?.length) return null;
-  const g = campsite.galerie;
+  const gal = campsite.galerie;
+  // Das Bento braucht genau 4 Bilder; darunter blendet sich die Sektion ehrlich aus.
+  if (!gal?.images || gal.images.length < 4) return null;
+  const g = gal.images;
+
+  const hasEmph = Boolean(gal.headingEmphasis) && gal.heading.includes(gal.headingEmphasis);
+  const [hBefore, hAfter] = hasEmph ? gal.heading.split(gal.headingEmphasis) : [gal.heading, ""];
 
   return (
     <section id="galerie" className="scroll-mt-24 bg-bg2 py-24 md:py-32">
@@ -17,15 +22,17 @@ export default function Galerie() {
           <div className="mb-9 flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-[34ch]">
               <h2 className="font-display text-[clamp(2.4rem,4vw,3.5rem)] font-extrabold leading-[1.0] tracking-tight text-ink">
-                Ein Platz wie <span className="font-serif italic font-normal text-gold">gemalt</span>
+                {hBefore}
+                {hasEmph && <span className="font-serif italic font-normal text-gold">{gal.headingEmphasis}</span>}
+                {hAfter}
               </h2>
               <p className="mt-4 max-w-[42ch] text-base leading-relaxed text-muted md:text-lg">
-                Morgenlicht über dem türkisen See, lange Sommerabende auf der Terrasse, ein eigener Platz im Grünen — ein paar Eindrücke vom Müllerhof.
+                {gal.intro}
               </p>
             </div>
             <div className="flex items-center gap-2.5 whitespace-normal md:whitespace-nowrap pb-1.5 text-sm text-muted">
               <span className="inline-block h-[5px] w-[5px] rounded-full bg-gold" />
-              Ausgewählte Aufnahmen · <b className="font-medium text-ink">Frühjahr bis Herbst</b>
+              Ausgewählte Aufnahmen · <b className="font-medium text-ink">{gal.tag}</b>
             </div>
           </div>
         </Reveal>
@@ -56,8 +63,10 @@ export default function Galerie() {
             >
               <span aria-hidden className="pointer-events-none absolute -right-10 -top-10 h-[130px] w-[130px] rounded-full border border-gold/50 opacity-50" />
               <span className="font-display text-[2.1rem] md:text-[2.85rem] font-extrabold leading-[0.92] tracking-tight">
-                +24
-                <span className="mt-2 block font-serif text-base italic font-normal leading-snug text-[#e7d9c4]">Fotos in der vollen Galerie</span>
+                {gal.moreCount ? `+${gal.moreCount}` : "Mehr"}
+                <span className="mt-2 block font-serif text-base italic font-normal leading-snug text-[#e7d9c4]">
+                  {gal.moreCount ? "Fotos in der vollen Galerie" : "Eindrücke in der Galerie"}
+                </span>
               </span>
               <span className="relative z-10 mt-3 flex items-center justify-between gap-2 border-t border-white/15 pt-3.5 text-[0.98rem] font-semibold">
                 Zur Galerie
