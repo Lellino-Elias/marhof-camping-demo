@@ -102,17 +102,19 @@ body {
 .scroll-bob { animation: scroll-bob 1.8s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .scroll-bob { animation: none; } }
 
-/* Scroll-reveal: JS adds .is-in. Lighter blur to avoid scroll repaint cost. */
+/* Scroll-reveal. Content is VISIBLE by default (robust: if JS is slow or fails,
+   nothing is ever stuck invisible). A tiny inline bootstrap in <body> adds
+   `reveal-js` to <html> before paint when JS is present, which arms the
+   hidden→animate-in state; it then adds `.is-in` on scroll (+ a 3.5s safety
+   that reveals everything regardless). */
 .reveal {
-  opacity: 0;
-  transform: translateY(24px);
   transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
-.reveal.is-in {
-  opacity: 1;
-  transform: none;
+.reveal-js .reveal:not(.is-in) {
+  opacity: 0;
+  transform: translateY(24px);
 }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }

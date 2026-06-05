@@ -1,37 +1,21 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
 type Props = {
   children: React.ReactNode;
   className?: string;
   delay?: number;
 };
 
+/**
+ * Scroll-reveal wrapper. Visual logic is handled by a vanilla inline bootstrap
+ * (see app/layout.tsx) so reveals work the instant the page is interactive —
+ * independent of (and not blocked by) React hydration. `delay` staggers the
+ * animation via CSS transition-delay.
+ */
 export default function Reveal({ children, className = "", delay = 0 }: Props) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const t = window.setTimeout(() => el.classList.add("is-in"), delay);
-            io.unobserve(el);
-            return () => window.clearTimeout(t);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [delay]);
-
   return (
-    <div ref={ref} className={`reveal ${className}`}>
+    <div
+      className={`reveal ${className}`}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+    >
       {children}
     </div>
   );

@@ -47,7 +47,18 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${display.variable} ${serif.variable} ${sans.variable} h-full antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        {/* Reveal bootstrap — runs before paint, no React needed. Arms the
+            hidden→animate state, reveals on scroll, and force-shows everything
+            after 3.5s so content is never stuck invisible on slow hydration. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var d=document;d.documentElement.classList.add('reveal-js');function s(e){e.classList.add('is-in')}function init(){var els=d.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){els.forEach(s);return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){s(e.target);io.unobserve(e.target)}})},{threshold:0.12,rootMargin:'0px 0px -6% 0px'});els.forEach(function(e){io.observe(e)});setTimeout(function(){d.querySelectorAll('.reveal:not(.is-in)').forEach(s)},3500)}if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',init)}else{init()}})();",
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
